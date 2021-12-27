@@ -1,0 +1,13 @@
+{
+"companyName": "Centrinova Solusi Edukasi",
+"productName": "First Person",
+"dataUrl": "33bddc12ee38f085e339746092334314.unityweb",
+"wasmCodeUrl": "e840e544950a7bfd7b15917f7b179a5b.unityweb",
+"wasmFrameworkUrl": "f71866afe5a8a30c2bca69f9c0bf5650.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
