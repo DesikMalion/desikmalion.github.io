@@ -1,0 +1,13 @@
+{
+"companyName": "Centrinova Solusi Teknologi",
+"productName": "360 Interactive",
+"dataUrl": "20f189c7fefa0d32a722d5dc940b6dde.unityweb",
+"wasmCodeUrl": "7b52f6367dfaa2a54dfaa1fd5b6fd260.unityweb",
+"wasmFrameworkUrl": "62065cd4af014d445fa06e6450f23641.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
