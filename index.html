@@ -1,25 +1,90 @@
-<!DOCTYPE html>
+<!--  -->
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
+	
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | FPS-Multiplayer</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
+    <title></title>
+    <link rel="shortcut icon" href="TemplateData/img/cse.png">
+    <link rel="stylesheet" href="TemplateData/css/style.css">
     <script src="Build/3544178c924aac8c5129f2d974d60dd7.js"></script>
-    <script>
-      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/7d8279f33c1c248df981c6968782bfdc.json", {onProgress: UnityProgress});
+	<script>
+		function ToggleFullScreen() {
+			var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+			(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+			(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+			(document.msFullscreenElement && document.msFullscreenElement !== null);
+			
+			var element = document.body.getElementsByClassName("webgl-content")[0];
+			
+			if (!isInFullScreen) {
+				document.getElementById("fullScreenButton").style.backgroundImage="url('TemplateData/img/fullScreen_off.png')";
+				return (element.requestFullscreen ||
+				element.webkitRequestFullscreen ||
+				element.mozRequestFullScreen ||
+				element.msRequestFullscreen).call(element);
+			}
+			else {
+				document.getElementById("fullScreenButton").style.backgroundImage="url('TemplateData/img/fullScreen_on.png')";
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if (document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				} else if (document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if (document.msExitFullscreen) {
+					document.msExitFullscreen();
+				}
+			}
+		}
+		
+		function UnityProgress(gameInstance, progress) {
+			if (!gameInstance.Module)
+			return;
+			document.getElementById("loadingBlock").style.display = "inherit";	 	
+			document.getElementById("fullBar").style.width = (100 * progress) + "%";
+			document.getElementById("emptyBar").style.width = (100 * (1 - progress)) + "%";
+			if (progress == 1)
+			{
+				document.getElementById("loadingBlock").style.display = "none";
+				
+				document.getElementById("fullScreenButton").style.display="block";
+			}	
+		}
+		
+		var gameInstance = UnityLoader.instantiate("gameContainer", "Build/d77bc3c29ad9365f1ec1b459544d8438.json", {
+			onProgress: UnityProgress});
+		
+		window.addEventListener("beforeunload", function(e){
+			console.log("Calling OnClose from Browser!");
+			//gameInstance.SendMessage("Pak Pos", "DeleteUserState");
+	 
+			var dialogText = "Would you like to continue unloading the page?";
+			e.returnValue = dialogText;
+			return dialogText;
+		});
     </script>
   </head>
   <body>
-    <div class="webgl-content">
-      <div id="gameContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">FPS-Multiplayer</div>
-      </div>
-    </div>
+  
+  		<div class="webgl-content">
+			<button style="display:none;" id="fullScreenButton" onclick="ToggleFullScreen()"></button>
+			<div id="gameContainer" style="width: 1920px; height: 1080px"></div>
+		</div>
+
+		<div id="loadingBlock">
+			<img class="logo" src="TemplateData/img/cse.png"></img>
+
+			<div id="progressBar">
+				<!-- <div>LOADING ...</div> -->
+				<div class="centered">
+					<div id="emptyBar"></div>
+					<div id="fullBar"></div>
+				</div>
+				<div style="color: #fff;">Please Wait...</div>
+			</div>
+		</div>
+
+	<script src="TemplateData/responsive.javascript"></script>
   </body>
 </html>
