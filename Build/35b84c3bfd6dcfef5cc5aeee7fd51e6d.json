@@ -1,0 +1,13 @@
+{
+"companyName": "Centrinova Solusi Teknologi",
+"productName": "FPS-Multiplayer",
+"dataUrl": "c4a0ae309958566627974cabeb31c690.unityweb",
+"wasmCodeUrl": "63a561f0db1353210fb001e1b1e549f5.unityweb",
+"wasmFrameworkUrl": "9d20c9849c5e879a1862c7950b1db894.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
